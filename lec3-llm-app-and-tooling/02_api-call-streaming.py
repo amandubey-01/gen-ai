@@ -27,13 +27,12 @@ def stream_chat_completion(prompt):
     # Process the stream.
     full_response = ""
     for chunk in stream:
-        print
         # Extract the content from chunk
         if chunk.choices[0].delta.content is not None:
             content = chunk.choices[0].delta.content
             print(content, end="", flush=True)
             full_response += content
-            
+
     print("\n")# new line after completion
     return full_response
 
